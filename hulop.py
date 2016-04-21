@@ -14,3 +14,13 @@ def localize_image(image, user, map_name):
             return None
         else:
             return estimate
+
+def bounding_to_3d(image, user, map_name, bounding):
+    data = {'user': user, 'map': map_name, 'bounding': bounding}
+    r = requests.post(HULOP_API + 'bounding', files={'image':image}, data=data)
+    if r.status_code != 200:
+        print r.text
+        return None
+    else:
+        results = r.json()['boundingBoxResults']
+        return results

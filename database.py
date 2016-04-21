@@ -21,3 +21,17 @@ def query(query, args=(), one=False):
     rv = cur.fetchall()
     cur.close()
     return (rv[0] if rv else None) if one else rv
+
+def insert(table, fields=(), values=()):
+    # g.db is the database connection
+    cur = get_db().cursor()
+    query = 'INSERT INTO %s (%s) VALUES (%s)' % (
+        table,
+        ', '.join(fields),
+        ', '.join(['?'] * len(values))
+    )
+    cur.execute(query, values)
+    g.db.commit()
+    id = cur.lastrowid
+    cur.close()
+    return id

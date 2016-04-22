@@ -1,6 +1,6 @@
 import sqlite3
 from flask import g
-DATABASE = './CrowdSightVisualization.db'
+DATABASE = './examples/CrowdSight.db'
 
 def connect_to_database():
     return sqlite3.connect(DATABASE)
@@ -31,7 +31,7 @@ def insert(table, fields=(), values=()):
         ', '.join(['?'] * len(values))
     )
     cur.execute(query, values)
-    g.db.commit()
+    get_db().commit()
     id = cur.lastrowid
     cur.close()
     return id

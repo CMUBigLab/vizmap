@@ -1,29 +1,19 @@
 from server import app
 import database
 import hulop
+import numpy as np
 
 USER = '1-shrink-0.75'
 MAP = 'cole-qolt'
 
-IMAGE_DIR = ''
-
 with app.app_context():
-    for s in database.query('select session from answers_label'):
-        filename = "{0}{1}.jpg".format(IMAGE_DIR, s['session'])
-        bounding_boxes = []
-        answer_ids = []
-        for answer in database.query('select * from answers_label where session = ?', [s['session']]):
-            bounding_boxes.append((answer['x1'],answer['y1'],answer['x2'],answer['y2']))
-            answer_ids.append(answer['id'])
-        with open(filename, 'rb') as image:
-            points = bounding_to_3d(image, USER, MAP, bounding)
-        for i, box in enumerate(points):
-            if len(box) < 1:
-                x1,y1,x2,y2 =  bounding_boxes[i]
-                print "No points found for image '{0}' ({1},{2},{3},{4})".format(filename,x1,y1,x2,y2)
-            for p in box:
-                database.insert(
-                    'answer_to_3d_point',
-                    ('answer_id','x','y','z'),
-                    (answer_ids[i], p['x'],p['y'],p['z'])
-                )
+    for a in database.query('select answer_id from answer_to_3d_point group by answer_id'):
+        ans = database.query('select category,label from answers_label where id=?', [a["answer_id"]], one=True)
+        points_db = database.query('select * from answer_to_3d_point where answer_id = ?', [a['answer_id']])
+        points = np.array([[p['x'], p['y'], p['z']] for p in points_db])
+        center = np.average(np.array(points), 0)
+        database.insert(
+            'hotspots',
+            ('x','y','z','category','details'),
+            (center[0],center[1],center[2], ans['category'], ans['label'])
+        )

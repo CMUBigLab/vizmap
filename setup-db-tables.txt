@@ -1,0 +1,17 @@
+CREATE TABLE answer_to_3d_point(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  x REAL NOT NULL,
+  y REAL NOT NULL,
+  z REAL NOT NULL,
+  answer_id INTEGER NOT NULL,
+  FOREIGN KEY(answer_id) references answers_label(id) ON DELETE CASCADE
+);
+
+CREATE TABLE hotspots(
+  hotspot_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  x REAL NOT NULL,
+  y REAL NOT NULL,
+  z REAL NOT NULL,
+  category TEXT NOT NULL,
+  details TEXT NOT NULL
+);

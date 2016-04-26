@@ -24,3 +24,11 @@ def bounding_to_3d(image, user, map_name, bounding):
     else:
         results = r.json()['boundingBoxResults']
         return results
+
+def get_K(user):
+    r = requests.get(HULOP_API + 'user', data={'user': user})
+    if r.status_code != 200:
+        print r.text
+        return None
+    else:
+        return r.json()['K']

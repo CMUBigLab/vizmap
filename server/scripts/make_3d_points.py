@@ -5,7 +5,7 @@ import hulop
 USER = '1-shrink-0.75'
 MAP = 'cole-qolt'
 
-IMAGE_DIR = 'examples/'
+IMAGE_DIR = './examples/'
 
 with app.app_context():
     for s in database.query('select session from answers_label group by session'):

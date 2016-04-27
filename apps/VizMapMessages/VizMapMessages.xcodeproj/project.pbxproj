@@ -1,0 +1,329 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 47;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		872D066F1CC829D500F21A8F /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 872D066E1CC829D500F21A8F /* sample.jpg */; };
+		876D65281CD10869008FDD1E /* LeaveMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876D65271CD10869008FDD1E /* LeaveMessageViewController.swift */; };
+		87B6748F1CC7CDCF007032C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B6748E1CC7CDCF007032C9 /* AppDelegate.swift */; };
+		87B674911CC7CDCF007032C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B674901CC7CDCF007032C9 /* ViewController.swift */; };
+		87B674941CC7CDCF007032C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87B674921CC7CDCF007032C9 /* Main.storyboard */; };
+		87B674961CC7CDCF007032C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87B674951CC7CDCF007032C9 /* Assets.xcassets */; };
+		87B674991CC7CDCF007032C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87B674971CC7CDCF007032C9 /* LaunchScreen.storyboard */; };
+		87B674A21CC7E571007032C9 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 87B674A11CC7E571007032C9 /* Icon-60@2x.png */; };
+		87B674A41CC7EDDF007032C9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B674A31CC7EDDF007032C9 /* Extensions.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		872D066E1CC829D500F21A8F /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
+		876D65271CD10869008FDD1E /* LeaveMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaveMessageViewController.swift; sourceTree = "<group>"; };
+		87B6748B1CC7CDCF007032C9 /* VizMapMessages.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VizMapMessages.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		87B6748E1CC7CDCF007032C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		87B674901CC7CDCF007032C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		87B674931CC7CDCF007032C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		87B674951CC7CDCF007032C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		87B674981CC7CDCF007032C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		87B6749A1CC7CDCF007032C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87B674A11CC7E571007032C9 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		87B674A31CC7EDDF007032C9 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		87B674881CC7CDCF007032C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		87B674821CC7CDCF007032C9 = {
+			isa = PBXGroup;
+			children = (
+				87B6748D1CC7CDCF007032C9 /* VizMapMessages */,
+				87B6748C1CC7CDCF007032C9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		87B6748C1CC7CDCF007032C9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				87B6748B1CC7CDCF007032C9 /* VizMapMessages.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		87B6748D1CC7CDCF007032C9 /* VizMapMessages */ = {
+			isa = PBXGroup;
+			children = (
+				87B674A01CC7E566007032C9 /* Assets */,
+				87B6748E1CC7CDCF007032C9 /* AppDelegate.swift */,
+				87B674901CC7CDCF007032C9 /* ViewController.swift */,
+				87B674921CC7CDCF007032C9 /* Main.storyboard */,
+				87B674951CC7CDCF007032C9 /* Assets.xcassets */,
+				87B674971CC7CDCF007032C9 /* LaunchScreen.storyboard */,
+				87B6749A1CC7CDCF007032C9 /* Info.plist */,
+				87B674A31CC7EDDF007032C9 /* Extensions.swift */,
+				876D65271CD10869008FDD1E /* LeaveMessageViewController.swift */,
+			);
+			path = VizMapMessages;
+			sourceTree = "<group>";
+		};
+		87B674A01CC7E566007032C9 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				872D066E1CC829D500F21A8F /* sample.jpg */,
+				87B674A11CC7E571007032C9 /* Icon-60@2x.png */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		87B6748A1CC7CDCF007032C9 /* VizMapMessages */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 87B6749D1CC7CDCF007032C9 /* Build configuration list for PBXNativeTarget "VizMapMessages" */;
+			buildPhases = (
+				87B674871CC7CDCF007032C9 /* Sources */,
+				87B674881CC7CDCF007032C9 /* Frameworks */,
+				87B674891CC7CDCF007032C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VizMapMessages;
+			productName = VizMapDemo;
+			productReference = 87B6748B1CC7CDCF007032C9 /* VizMapMessages.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		87B674831CC7CDCF007032C9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = FIGLab;
+				TargetAttributes = {
+					87B6748A1CC7CDCF007032C9 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 9VUC3R8D65;
+					};
+				};
+			};
+			buildConfigurationList = 87B674861CC7CDCF007032C9 /* Build configuration list for PBXProject "VizMapMessages" */;
+			compatibilityVersion = "Xcode 6.3";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 87B674821CC7CDCF007032C9;
+			productRefGroup = 87B6748C1CC7CDCF007032C9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				87B6748A1CC7CDCF007032C9 /* VizMapMessages */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		87B674891CC7CDCF007032C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87B674991CC7CDCF007032C9 /* LaunchScreen.storyboard in Resources */,
+				87B674961CC7CDCF007032C9 /* Assets.xcassets in Resources */,
+				87B674941CC7CDCF007032C9 /* Main.storyboard in Resources */,
+				87B674A21CC7E571007032C9 /* Icon-60@2x.png in Resources */,
+				872D066F1CC829D500F21A8F /* sample.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		87B674871CC7CDCF007032C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				876D65281CD10869008FDD1E /* LeaveMessageViewController.swift in Sources */,
+				87B674A41CC7EDDF007032C9 /* Extensions.swift in Sources */,
+				87B674911CC7CDCF007032C9 /* ViewController.swift in Sources */,
+				87B6748F1CC7CDCF007032C9 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		87B674921CC7CDCF007032C9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				87B674931CC7CDCF007032C9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		87B674971CC7CDCF007032C9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				87B674981CC7CDCF007032C9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		87B6749B1CC7CDCF007032C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		87B6749C1CC7CDCF007032C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		87B6749E1CC7CDCF007032C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/VizMapMessages/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.figlab.VizMapMessages;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		87B6749F1CC7CDCF007032C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/VizMapMessages/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.figlab.VizMapMessages;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		87B674861CC7CDCF007032C9 /* Build configuration list for PBXProject "VizMapMessages" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87B6749B1CC7CDCF007032C9 /* Debug */,
+				87B6749C1CC7CDCF007032C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		87B6749D1CC7CDCF007032C9 /* Build configuration list for PBXNativeTarget "VizMapMessages" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87B6749E1CC7CDCF007032C9 /* Debug */,
+				87B6749F1CC7CDCF007032C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 87B674831CC7CDCF007032C9 /* Project object */;
+}

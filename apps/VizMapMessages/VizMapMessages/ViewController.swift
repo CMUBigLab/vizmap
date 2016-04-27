@@ -11,14 +11,9 @@ import AVFoundation
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    let imagePicker = UIImagePickerController()
-    var sampleImage : UIImage = UIImage()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Grab Captured Session
-        imagePicker.delegate = self
-        sampleImage = UIImage(named:"sample.jpg")!
+        self.title = "VizMap Messages"
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,17 +21,17 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func leaveMessage(sender: UIButton) {
-        
-        presentViewController(imagePicker, animated: true, completion: nil)
-    }
-    
-    
-    func exploreRequest(img: UIImage) {
+
+    @IBAction func showExploreView(sender: UIButton) {
         
     }
     
-    
+    @IBAction func showLeaveMessageView(sender: UIButton) {
+        //let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //let vc = storyboard.instantiateViewControllerWithIdentifier("LeaveMessageViewController")
+        //self.navigationController?.pushViewController(vc, animated: true)
+    }
+
     func createMessageRequest(img: UIImage)
     {
 

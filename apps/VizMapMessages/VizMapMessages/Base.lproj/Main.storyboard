@@ -23,7 +23,6 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Explore"/>
                                 <connections>
-                                    <action selector="showExploreView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KqY-Ex-XSv"/>
                                     <segue destination="YiY-zv-qmb" kind="push" id="T94-BS-cP2"/>
                                 </connections>
                             </button>
@@ -34,7 +33,6 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Leave Message"/>
                                 <connections>
-                                    <action selector="showLeaveMessageView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="unk-ng-prm"/>
                                     <segue destination="pCg-I4-sro" kind="push" id="jC3-hY-u7W"/>
                                 </connections>
                             </button>
@@ -61,12 +59,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Retrieve Messages" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0O2-zR-SJd">
-                                <rect key="frame" x="115" y="108" width="145" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qC1-Zb-DHF">
+                                <rect key="frame" x="36" y="177" width="303" height="162"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXI-hY-OUQ">
                                 <rect key="frame" x="0.0" y="599" width="375" height="68"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -75,6 +70,7 @@
                                 <state key="normal" title="Take a Photo"/>
                                 <connections>
                                     <action selector="launchCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nKh-bN-fxM"/>
+                                    <action selector="takePhoto:" destination="YiY-zv-qmb" eventType="touchUpInside" id="oms-er-3rZ"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TcW-i8-M4c">
@@ -86,15 +82,23 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="otq-bg-16m">
                                 <rect key="frame" x="177" y="137" width="20" height="20"/>
                             </activityIndicatorView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qC1-Zb-DHF">
-                                <rect key="frame" x="36" y="177" width="303" height="162"/>
-                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Take a Photo to Retrieve Messages" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0O2-zR-SJd">
+                                <rect key="frame" x="0.0" y="108" width="375" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="lFu-aA-os8"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="otq-bg-16m" id="aNR-AO-c4u"/>
+                        <outlet property="previewImage" destination="qC1-Zb-DHF" id="5Ub-8u-SgV"/>
+                        <outlet property="statusMessage" destination="TcW-i8-M4c" id="OO6-lK-0bN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q41-eH-FFU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

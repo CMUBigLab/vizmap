@@ -17,12 +17,14 @@ class LeaveMessageViewController: UIViewController, UINavigationControllerDelega
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     var imagePicker = UIImagePickerController()
+    var sampleImage: UIImage = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         imagePicker.delegate = self
+        sampleImage = UIImage(named:"sample.jpg")!
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,7 +38,8 @@ class LeaveMessageViewController: UIViewController, UINavigationControllerDelega
     }
     
     @IBAction func createVizMapMessageRequest(sender: AnyObject) {
-        newMessageRequest(imagePreview.image!, msg: messageTextField.text!)
+        //newMessageRequest(imagePreview.image!, msg: messageTextField.text!)
+        newMessageRequest(sampleImage, msg: messageTextField.text!)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -50,7 +53,7 @@ class LeaveMessageViewController: UIViewController, UINavigationControllerDelega
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             // Do something with Image
             imagePreview.contentMode = .ScaleAspectFit
-            imagePreview.image = pickedImage
+            imagePreview.image = sampleImage
             self.imageStatus.text = "Dimensions: \(pickedImage.size.width), \(pickedImage.size.height)"
         
             if (!messageTextField.text!.isEmpty) {
@@ -105,9 +108,13 @@ class LeaveMessageViewController: UIViewController, UINavigationControllerDelega
             dispatch_async(dispatch_get_main_queue(),{
                 self.activityIndicator.stopAnimating()
                 self.activityIndicator.hidden = true;
+                
+               
+                
                 var json:AnyObject
                 do {
                     json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
+                    print(json)
                     if let response = json["message"] as? String {
                         self.imageStatus.text = "Messaged saved: \(response)"
                         // Return

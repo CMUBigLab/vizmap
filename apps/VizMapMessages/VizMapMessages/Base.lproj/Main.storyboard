@@ -49,10 +49,10 @@
             </objects>
             <point key="canvasLocation" x="116.5" y="348.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Explore View Controller-->
         <scene sceneID="vi3-Fa-0Z8">
             <objects>
-                <viewController id="YiY-zv-qmb" sceneMemberID="viewController">
+                <viewController id="YiY-zv-qmb" customClass="ExploreViewController" customModule="VizMapMessages" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OJp-63-SP6"/>
                         <viewControllerLayoutGuide type="bottom" id="wFa-TO-xoc"/>
@@ -138,6 +138,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
+                                    <action selector="createVizMapMessageRequest:" destination="pCg-I4-sro" eventType="touchUpInside" id="eJs-Wn-V6O"/>
                                     <action selector="launchCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aNn-1P-nsS"/>
                                 </connections>
                             </button>
@@ -149,6 +150,7 @@
                                 <state key="normal" title="Take a Photo"/>
                                 <connections>
                                     <action selector="launchCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c1J-cA-wiG"/>
+                                    <action selector="takePhoto:" destination="pCg-I4-sro" eventType="touchUpInside" id="gbc-mK-qcY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Message:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMp-Kc-1H7">
@@ -166,17 +168,27 @@
                                 <rect key="frame" x="27" y="172" width="320" height="171"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Photo Taken" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVr-5r-iOb">
-                                <rect key="frame" x="126" y="356" width="122" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="0.0" y="356" width="375" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bnd-hD-kiN">
+                                <rect key="frame" x="177" y="385" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="iDq-xE-Rwi"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="bnd-hD-kiN" id="dAB-HE-bIw"/>
+                        <outlet property="imagePreview" destination="3ra-EL-ruZ" id="tLQ-Vt-KAo"/>
+                        <outlet property="imageStatus" destination="pVr-5r-iOb" id="NbK-0R-oiS"/>
+                        <outlet property="messageTextField" destination="fFS-bI-Gtg" id="Ll8-KN-BBj"/>
+                        <outlet property="submitButton" destination="fgM-QW-uEp" id="Tx1-Hg-6Kl"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="750.5" y="348.5"/>

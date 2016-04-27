@@ -26,7 +26,7 @@ def bounding_to_3d(image, user, map_name, bounding):
         return results
 
 def get_K(user):
-    r = requests.get(HULOP_API + 'user', data={'user': user})
+    r = requests.get(HULOP_API + 'user', params={'name': user})
     if r.status_code != 200:
         print r.text
         return None

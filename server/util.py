@@ -1,6 +1,7 @@
 import math
 import numpy as np
 import numpy.linalg as la
+import itertools
 
 def dist(pt1, pt2):
     if len(pt1) != len(pt2):
@@ -23,17 +24,39 @@ def clockwise(t, R, point):
     return "{0} o'clock".format(int(hour))
 
 def get_P_from_Rt(R, t):
-    Rt = np.concatenate((np.array(R),np.array(t)), axis = 1)
-    P = np.concatenate((Rt, np.array([0,0,0,1])))
-    return P
+    Rt = np.c_[R,t]
+    #P = np.r_[Rt, [[0,0,0,1]]]
+    return Rt
 
 def project_3d_to_2d(K,P,points):
     results = []
     for X in points:
-        x = K * P * np.concatenate((X.T,[1.]))
+        x = K.dot(P).dot(np.concatenate((X.T,[1.])))
         x /= x[2]
         results.append(x[:2])
     return np.array(results)
+
+def get_bounding(points):
+    p_min = points.min(axis = 0)
+    p_max = points.max(axis = 0)
+    return np.vstack([p_min, (p_max[0], p_min[1]), p_max, (p_min[0], p_max[1])])
+
+def clip_bbox(bbox, w, h):
+    # is any point in the range?
+    valid = np.logical_and((bbox[:,0] < w), bbox[:,1] < h)
+    if valid.any():
+        bbox[:,0] = np.clip(bbox[:, 0], 0, w)
+        bbox[:,1] = np.clip(bbox[:, 1], 0, h)
+        w_scale, h_scale = screen_scale(w,h)
+        bbox[:,0] = w_scale*bbox[:,0]
+        bbox[:,1] = h_scale*bbox[:,1]
+        return np.vstack([bbox.min(axis=0),bbox.max(axis=0)])
+    else:
+        return None
+
+def screen_scale(width, height):
+    a = min(width, height)
+    return 1.0/a, 1.0/a
 
 # deg = 0
 # R = [[math.cos(deg), -math.sin(deg), 0],

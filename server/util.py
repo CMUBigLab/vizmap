@@ -55,13 +55,8 @@ def clip_bbox(bbox, w, h):
         return None
 
 def screen_scale(width, height):
-    if width < height:
-        width_scale = 1.0/width
-        height_scale = 1.0 / (height*width_scale)
-    else:
-        height_scale = 1.0/height
-        width_scale = 1.0 / (width*height_scale)
-    return width_scale, height_scale
+    a = min(width, height)
+    return 1.0/a, 1.0/a
 
 # deg = 0
 # R = [[math.cos(deg), -math.sin(deg), 0],

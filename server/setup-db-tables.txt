@@ -15,3 +15,11 @@ CREATE TABLE hotspots(
   category TEXT NOT NULL,
   details TEXT NOT NULL
 );
+
+CREATE TABLE hotspot_messages(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  x REAL NOT NULL,
+  y REAL NOT NULL,
+  z REAL NOT NULL,
+  message TEXT NOT NULL
+);

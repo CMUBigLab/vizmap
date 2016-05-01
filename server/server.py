@@ -5,6 +5,9 @@ from flask.ext.cors import CORS
 import os
 import time
 import numpy as np
+from PIL import Image
+from collections import defaultdict
+
 
 import util
 import database
@@ -55,8 +58,8 @@ def nearby_message():
     if estimate:
         loc = estimate['t']
         results = []
-        #radius = request.form['radius']
-        radius = 5
+        radius = request.form['radius']
+        #radius = 5
         for h in database.query('select * from hotspot_messages'):
             h_loc = (h['x'],h['y'],h['z'])
             if util.dist(loc[:2], h_loc[:2]) < radius:
@@ -88,34 +91,47 @@ def create_message():
 @app.route("/hotspotLayout", methods=['POST', 'GET'])
 def hotspot_loyout():
     if request.method == "GET":
-        return send_from_directory('buttons', request.args['session'])
+        session = request.args['session']
+        #session = str(3846)
+        return send_from_directory('buttons', session)
     elif request.method == "POST":
-        estimate = hulop.localize_image(
+        session = os.path.splitext(request.files['image'].filename)[0]
+        im = Image.open(request.files['image'])
+        width, height = im.size
+        w_scale, h_scale = util.screen_scale(width, height)
+        request.files['image'].seek(0)
+        buttons = []
+        points_db = database.query("select * from answer_to_3d_point")
+        answer_ids = [p['answer_id'] for p in points_db]
+        points_3d = [[p['x'],p['y'],p['z']] for p in points_db]
+        points_2d = hulop.project_3d_to_2d(
             request.files['image'],
             request.form['user'],
-            request.form['map']
+            request.form['map'],
+            points_3d
         )
-        K = np.array(hulop.get_K(request.form['user']))
-        P = util.get_P_from_Rt(estimate['R'], estimate['t'])
-        session = os.path.splitext(request.files['image'].filename)[0]
-        print session
-        width, height = 2448,1836 # todo, actuall get from image
-        buttons = []
-        for a in database.query("select * from answers_label where session=?", [session]):
-            points_db = database.query("select * from answer_to_3d_point where answer_id=?", [a['id']])
-            if not points_db:
-                continue
-            points = np.array([(p['x'],p['y'],p['z']) for p in points_db])
-            points_2d = util.project_3d_to_2d(K, P, points)
-            bbox = util.get_bounding(points_2d)
-            clipped = util.clip_bbox(bbox, width, height)
-            if clipped is not None:
-                buttons.append([a['category']] + [str(c) for c in np.nditer(clipped)])
-        w_scale, h_scale = util.screen_scale(width, height)
+        if points_2d == None:
+            return json.dumps({'error': 'could not localize'}), 400
+        points_by_a = defaultdict(list)
+        for i,a in enumerate(answer_ids):
+            points_by_a[a].append(points_2d[i])
+        for k,v in points_by_a.iteritems():
+            if v:
+                p = np.array(v)
+                bbox = util.get_bounding(p)
+                a = database.query("select * from answers_label where id = ?", [k], one=True)
+                clipped = util.clip_bbox(bbox, width, height)
+                if clipped is not None:
+                    clipped += 0.0001
+                    buttons.append([a['category']] + [str(c) for c in np.nditer(clipped)])
         buttons.insert(0,[str(w_scale*width), str(h_scale*height), str(len(buttons))])
         with open(os.path.join('buttons', session), 'w') as outfile:
             json.dump(buttons, outfile)
         return "",201
+
+@app.route("/hotspots", methods=['GET'])
+def hotspots():
+    return json.dumps({'hotspots':database.query('select * from hotspots')})
 
 @app.teardown_appcontext
 def close_connection(exception):

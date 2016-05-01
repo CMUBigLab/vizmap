@@ -25,10 +25,20 @@ def bounding_to_3d(image, user, map_name, bounding):
         results = r.json()['boundingBoxResults']
         return results
 
-def get_K(user):
+def get_camera(user):
     r = requests.get(HULOP_API + 'user', params={'name': user})
     if r.status_code != 200:
         print r.text
         return None
     else:
-        return r.json()['K']
+        return r.json()['K'], r.json()['dist']
+
+def project_3d_to_2d(image, user, map_name, points):
+    data = {'user': user, 'map': map_name, 'points': points}
+    r = requests.post(HULOP_API + 'project', files={'image': image}, data=data)
+    if r.status_code != 200:
+        print r.text
+        return None
+    else:
+        results = r.json()['imagePoints']
+        return results

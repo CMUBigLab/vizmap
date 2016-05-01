@@ -32,6 +32,7 @@ def project_3d_to_2d(K,P,points):
     results = []
     for X in points:
         x = K.dot(P).dot(np.concatenate((X.T,[1.])))
+        x /= (0.75)
         x /= x[2]
         results.append(x[:2])
     return np.array(results)
@@ -43,13 +44,19 @@ def get_bounding(points):
 
 def clip_bbox(bbox, w, h):
     # is any point in the range?
-    valid = np.logical_and((bbox[:,0] < w), bbox[:,1] < h)
+    valid_width = np.logical_and(
+        bbox[:,0] > 0,
+        bbox[:,0] < w
+    )
+    valid_height = np.logical_and(
+        bbox[:,1] > 0,
+        bbox[:,1] < h
+    )
+    valid = np.logical_and(valid_width, valid_height)
     if valid.any():
-        bbox[:,0] = np.clip(bbox[:, 0], 0, w)
-        bbox[:,1] = np.clip(bbox[:, 1], 0, h)
         w_scale, h_scale = screen_scale(w,h)
-        bbox[:,0] = w_scale*bbox[:,0]
-        bbox[:,1] = h_scale*bbox[:,1]
+        bbox[:,0] = np.clip(bbox[:,0], 0, w)*w_scale
+        bbox[:,1] = np.clip(bbox[:,1], 0, h)*h_scale
         return np.vstack([bbox.min(axis=0),bbox.max(axis=0)])
     else:
         return None

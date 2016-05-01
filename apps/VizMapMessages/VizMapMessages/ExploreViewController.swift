@@ -39,8 +39,8 @@ class ExploreViewController: UIViewController, UINavigationControllerDelegate, U
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             // Do something with Image
             previewImage.contentMode = .ScaleAspectFit
-            previewImage.image = sampleImage
-            newExploreMessagesRequest(sampleImage)
+            previewImage.image = pickedImage
+            newExploreMessagesRequest(pickedImage)
             self.statusMessage.text = "Dimensions: \(pickedImage.size.width), \(pickedImage.size.height)"
         }
         

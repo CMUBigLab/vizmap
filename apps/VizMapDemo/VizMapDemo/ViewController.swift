@@ -51,8 +51,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
              */
             
             imageView.contentMode = .ScaleAspectFit
-            imageView.image = sampleImage
-            imageUploadRequest(sampleImage)
+            imageView.image = pickedImage
+            imageUploadRequest(pickedImage)
             self.statusText.text = "Photo dimensions: \(pickedImage.size.width), \(pickedImage.size.height)"
 
         }

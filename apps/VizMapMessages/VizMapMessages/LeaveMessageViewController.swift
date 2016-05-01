@@ -39,7 +39,7 @@ class LeaveMessageViewController: UIViewController, UINavigationControllerDelega
     
     @IBAction func createVizMapMessageRequest(sender: AnyObject) {
         //newMessageRequest(imagePreview.image!, msg: messageTextField.text!)
-        newMessageRequest(sampleImage, msg: messageTextField.text!)
+        newMessageRequest(imagePreview.image!, msg: messageTextField.text!)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -53,7 +53,7 @@ class LeaveMessageViewController: UIViewController, UINavigationControllerDelega
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             // Do something with Image
             imagePreview.contentMode = .ScaleAspectFit
-            imagePreview.image = sampleImage
+            imagePreview.image = pickedImage
             self.imageStatus.text = "Dimensions: \(pickedImage.size.width), \(pickedImage.size.height)"
         
             if (!messageTextField.text!.isEmpty) {
